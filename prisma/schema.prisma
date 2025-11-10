@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Status {
+  pending
+  approved
+}
+
+enum Role {
+  admin
+  subscriber
+}
+
+model User {
+  id         String  @id @default(uuid())
+  firstname  String  @map("First Name")
+  lastname   String  @map("Last Name")
+  email      String  @unique @map("Email")
+  username   String  @map("Username")
+  password   String  @map("Password")
+  company    String? @map("Company")
+  country    String  @map("Country")
+  phone      String? @map("Phone")
+  whatsapp   String? @map("Whatsapp")
+  mice       Boolean @map("Mice")
+  fit        Boolean @map("Fit")
+  groups     Boolean @map("Groups")
+  guaranteed Boolean @map("Guaranteed")
+  leisure    Boolean @map("Leisure")
+  role       Role    @default(subscriber) @map("Role")
+  status     Status  @default(pending) @map("Status")
+  policy     Boolean @default(true) @map("Policy")
+
+  @@map("Users")
+}
