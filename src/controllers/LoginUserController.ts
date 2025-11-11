@@ -19,7 +19,7 @@ export default class LoginUserController {
             secure: false,
             path: '/',
             maxAge: 24 * 60 * 60 * 1000,
-            sameSite: 'none',
+            sameSite: 'lax',
           })
           .json({
             firstname: authResult.user.firstname,
