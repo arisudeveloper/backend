@@ -16,7 +16,7 @@ export default class LoginUserController {
           .status(200)
           .cookie('token', authResult.token, {
             httpOnly: true,
-            secure: true,
+            secure: false,
             path: '/',
             maxAge: 24 * 60 * 60 * 1000,
           })
