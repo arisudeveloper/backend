@@ -16,10 +16,10 @@ export default class LoginUserController {
           .status(200)
           .cookie('token', authResult.token, {
             httpOnly: true,
-            secure: false,
+            secure: true,
             path: '/',
             maxAge: 24 * 60 * 60 * 1000,
-            sameSite: 'lax',
+            sameSite: 'none',
           })
           .json({
             firstname: authResult.user.firstname,
