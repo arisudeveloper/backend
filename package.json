@@ -1,41 +1,39 @@
 {
-  "name": "nova-pasta-(3)",
+  "name": "meu-backend",
   "version": "1.0.0",
-  "main": "script.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prismaMigrateDev": "npx prisma migrate dev",
-    "start:dev": "npx prisma generate && nodemon",
-    "build": "npx tsc"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "description": "",
-  "devDependencies": {
-    "@prisma/client": "^6.16.2",
-    "@types/bcrypt": "^6.0.0",
-    "@types/cookie-parser": "^1.4.10",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3",
-    "@types/jsonwebtoken": "^9.0.10",
-    "bcrypt": "^6.0.0",
-    "cors": "^2.8.5",
-    "jsonwebtoken": "^9.0.2",
-    "nodemon": "^3.1.10",
-    "prisma": "^6.16.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "dev": "ts-node src/index.ts",
+    "start:dev": "npx prisma generate && nodemon src/index.ts",
+    "build": "npm run prisma:generate && tsc",
+    "start": "node dist/index.js",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate:dev": "npx prisma migrate dev",
+    "prisma:migrate:deploy": "npx prisma migrate deploy"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
     "express-slow-down": "^3.0.0",
     "form-data": "^4.0.4",
+    "jsonwebtoken": "^9.0.2",
     "mailgun.js": "^12.1.1",
     "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.16.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }
