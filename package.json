@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "start:dev": "npx prisma generate && nodemon src/index.ts",
+  "start:dev": "npx prisma generate && nodemon --exec ts-node src/index.ts",
     "build": "npm run prisma:generate && tsc",
     "start": "node dist/index.js",
     "prisma:generate": "npx prisma generate",
