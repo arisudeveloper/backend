@@ -37,7 +37,7 @@ app.use(
 );
 
 app.post('/api/v1/register', limiter, register.handleRegister);
-app.post('/api/v1/login', limiter, login.handleLogin);
+app.post('/api/v1/login', login.handleLogin);
 app.post('/api/v1/admin', verifyAdmin.handle, adminController.handle);
 app.patch(
   '/api/v1/admin/user/:id',
@@ -55,7 +55,7 @@ app.patch(
   resetPasswordController.handleResetPassword,
   resetPasswordController.updatePasswordHash,
 );
-app.delete('/api/v1/delete', limiter, deleteUserController.handle);
+app.delete('/api/v1/delete', deleteUserController.handle);
 
 app.post(
   '/api/v1/user',
