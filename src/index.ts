@@ -118,7 +118,15 @@ app.post(
 );
 
 app.post('/api/v1/logout', (request: Request, response: Response) => {
-  return response.clearCookie('token').json({ message: 'Cookie deletado' });
+  return response
+    .clearCookie('token', {
+      httpOnly: true,
+      secure: true,
+      path: '/',
+      maxAge: 2 * 60 * 1000,
+      sameSite: 'none',
+    })
+    .json({ message: 'Cookie deletado' });
 });
 
 app.listen(process.env.SERVER_PORT);
