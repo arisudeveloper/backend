@@ -12,7 +12,6 @@ export default class ForgotPasswordController {
 
       const userDB = await findUserDBEmail(userRequest.email);
 
-
       if (userDB) {
         const token = jwtCreate(
           userDB.firstname,
@@ -32,7 +31,7 @@ export default class ForgotPasswordController {
           from: `Reset your password ${process.env.API_MAILGUN_POSTMASTER}`,
           to: [`${userDB?.firstname} <${userDB?.email}>`],
           subject: `${userDB?.firstname}, `,
-          html: `<h1>Use the link below to reset your password. / Utilisez le lien ci-dessous pour réinitialiser votre mot de passe. / Utiliza el enlace de abajo para restablecer tu contraseña. / Use o link abaixo para redefinir sua senha. / Użyj poniższego linku, aby zresetować swoje hasło.</h1> <a href="http://localhost:5173/reset-pass/${token}">Redefinir senha</a>`,
+          html: `<h1>Use the link below to reset your password. / Utilisez le lien ci-dessous pour réinitialiser votre mot de passe. / Utiliza el enlace de abajo para restablecer tu contraseña. / Use o link abaixo para redefinir sua senha. / Użyj poniższego linku, aby zresetować swoje hasło.</h1> <a href="https://somewhere-to.com/reset-pass/${token}">Redefinir senha</a>`,
         });
         return response.status(200).json({
           message: 'Link para redefinição enviado com sucesso para o e-mail',
