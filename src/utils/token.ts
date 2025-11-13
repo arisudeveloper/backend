@@ -11,7 +11,7 @@ export function jwtCreate(
   const token = jwt.sign(
     { firstName: firstname, status, role, email: email, id: id },
     process.env.JSONWEBTOKEN_KEY!,
-    { expiresIn: '2m' },
+    { expiresIn: '2d' },
   );
   return token;
 }
