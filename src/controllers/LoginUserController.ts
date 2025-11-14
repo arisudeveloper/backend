@@ -20,7 +20,6 @@ export default class LoginUserController {
             path: '/',
             maxAge: 2 * 24 * 60 * 60 * 1000,
             sameSite: 'none',
-            domain: '.dev.gabrieleustaquio.com.br',
           })
           .json({
             firstname: authResult.user.firstname,
